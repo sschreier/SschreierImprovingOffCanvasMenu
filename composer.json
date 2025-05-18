@@ -1,6 +1,6 @@
 {
   "name": "sschreier/sschreierimprovingoffcanvasmenu",
-  "description": "improvement of the checkout",
+  "description": "improvement of the off-canvas menu",
   "version": "1.0.0",
   "type": "shopware-platform-plugin",
   "license": "GPL-3.0-or-later",
