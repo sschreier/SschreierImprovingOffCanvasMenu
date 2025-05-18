@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{% block layout_header_navigation_toggle_tablet_button_icon %}
+    {% block layout_header_navigation_toggle_tablet_button_icon_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {{ parent() }}
+
+    {% block layout_header_navigation_toggle_tablet_button_icon_improvingoffcanvasmenu_custom %}
+        {% if config("SschreierImprovingOffCanvasMenu.config.showMenuTextToRightOfIconInHeader") %}
+            <span class="icon-text">{{ 'general.menuLink'|trans|striptags }}</span>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{% block layout_header_navigation_toggle_button_icon %}
+    {% block layout_header_navigation_toggle_button_icon_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {{ parent() }}
+
+    {% block layout_header_navigation_toggle_button_icon_improvingoffcanvasmenu_custom %}
+        {% if config("SschreierImprovingOffCanvasMenu.config.showMenuTextToRightOfIconInHeader") %}
+            <span class="icon-text">{{ 'general.menuLink'|trans|striptags }}</span>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

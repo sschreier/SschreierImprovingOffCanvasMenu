@@ -1,0 +1,30 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/item-link.html.twig' %}
+
+{% block layout_navigation_offcanvas_navigation_category_item_link %}
+    {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {% set activeId = shopware.navigation.id ?? context.salesChannel.navigationCategoryId %}
+    {% set isRoot = activeId == context.salesChannel.navigationCategoryId %}
+
+    {% if config('SschreierImprovingOffCanvasMenu.config.showHomeLinkAsFirstLink') and loop.first and isRoot %}
+        {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_custom %}
+            <li class="navigation-offcanvas-list-item">
+                <a class="navigation-offcanvas-link nav-item nav-link" href="{{ 'sschreier.improvingoffcanvasmenu.general.homeLink'|trans|striptags }}" itemprop="url" title="{{ 'sschreier.improvingoffcanvasmenu.general.homeLinkText'|trans|striptags }}">
+                    <span itemprop="name">{{ 'sschreier.improvingoffcanvasmenu.general.homeLinkText'|trans|striptags }}</span>
+                </a>
+            </li>
+        {% endblock %}
+    {% endif %}
+
+    {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_custom_after %}{% endblock %}
+
+    {% if not(item.category.translated.customFields['sschreier_categoryoffcanvassettings_hideinoffcanvasmenu']) %}
+        {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_customfield_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_customfield_after %}{% endblock %}
+    {% endif %}
+
+    {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_after %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>settings for a menu text to the right of the icon in the header</title>
+        <title lang="de-DE">Einstellungen für einen Menü-Text rechts neben dem Icon im Header</title>
+
+        <input-field type="bool">
+            <name>showMenuTextToRightOfIconInHeader</name>
+            <label>show</label>
+            <label lang="de-DE">anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>menuTextSnippet</name>
+            <label>text</label>
+            <label lang="de-DE">Text</label>
+            <snippet>general.menuLink</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+    </card>
+
+    <card>
+        <title>settings for a home link</title>
+        <title lang="de-DE">Einstellungen für einen Home-Link</title>
+
+        <input-field type="bool">
+            <name>showHomeLinkAsFirstLink</name>
+            <label>show as first link</label>
+            <label lang="de-DE">als ersten Link anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>homeLinkSnippet</name>
+            <label>link</label>
+            <label lang="de-DE">Link</label>
+            <snippet>sschreier.improvingoffcanvasmenu.general.homeLink</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+
+        <component name="sw-snippet-field">
+            <name>homeLinkTextSnippet</name>
+            <label>text</label>
+            <label lang="de-DE">Text</label>
+            <snippet>sschreier.improvingoffcanvasmenu.general.homeLinkText</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+    </card>
+
+    <card>
+        <title>settings for the menu items</title>
+        <title lang="de-DE">Einstellungen für die Menü-Links</title>
+
+        <input-field type="int">
+            <name>listItemsFontSize</name>
+            <label>font size</label>
+            <label lang="de-DE">Schriftgröße</label>
+            <defaultValue>16</defaultValue>
+            <placeholder>16</placeholder>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showBorderBelowMenuItems</name>
+            <label>show border below each menu item</label>
+            <label lang="de-DE">Rahmen unterhalb jedes Menü-Links anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>settings for the sublevels</title>
+        <title lang="de-DE">Einstellungen für die Unterebenen</title>
+
+        <component name="sw-snippet-field">
+            <name>mainMenuTextSnippet</name>
+            <label>text of the link to return to the overview</label>
+            <label lang="de-DE">Text des Links zum Zurückkehren zur Übersicht</label>
+            <snippet>general.mainMenu</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+
+        <input-field type="bool">
+            <name>showBackLink</name>
+            <label>show 'back' link</label>
+            <label lang="de-DE">Link 'Zurück' anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>general settings</title>
+        <title lang="de-DE">Allgemeine Einstellungen</title>
+
+        <input-field type="bool">
+            <name>showMenuInFullWidthInSmartphoneView</name>
+            <label>show menu in full width in the smartphone view</label>
+            <label lang="de-DE">Menü in der Smartphone-Ansicht in voller Breite anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>closeButtonFontSize</name>
+            <label>font size of the close button</label>
+            <label lang="de-DE">Schriftgröße der Schließen-Schaltfläche</label>
+            <defaultValue>16</defaultValue>
+            <placeholder>16</placeholder>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showLanguagesAndCurrenciesArea</name>
+            <label>show the languages and currencies area</label>
+            <label lang="de-DE">Bereich Sprachen und Währungen anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showMenuItemsOfFooterServiceNavigation</name>
+            <label>show the menu items of the footer service navigation</label>
+            <label lang="de-DE">Menü-Links der Footer-Service-Navigation anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>categoriesTextSnippet</name>
+            <label>text above the category list</label>
+            <label lang="de-DE">Text oberhalb der Kategorieauflistung</label>
+            <snippet>general.categories</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+    </card>
+</config>

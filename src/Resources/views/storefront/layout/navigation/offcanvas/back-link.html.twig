@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/back-link.html.twig' %}
+
+{% block layout_navigation_offcanvas_navigation_category_back_link %}
+    {% block layout_navigation_offcanvas_navigation_category_back_link_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {% if config('SschreierImprovingOffCanvasMenu.config.showBackLink') %}
+        {% block layout_navigation_offcanvas_navigation_category_back_link_improvingoffcanvasmenu_default_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block layout_navigation_offcanvas_navigation_category_back_link_improvingoffcanvasmenu_default_after %}{% endblock %}
+    {% endif %}
+
+    {% block layout_navigation_offcanvas_navigation_category_back_link_improvingoffcanvasmenu_after %}{% endblock %}
+{% endblock %}

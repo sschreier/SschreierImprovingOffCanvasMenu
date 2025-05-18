@@ -1,0 +1,54 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/offcanvas/navigation.html.twig' %}
+
+{% block layout_navigation_offcanvas_navigation_actions %}
+    {% block layout_navigation_offcanvas_navigation_actions_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {% if config('SschreierImprovingOffCanvasMenu.config.showLanguagesAndCurrenciesArea') %}
+        {% block layout_navigation_offcanvas_navigation_actions_improvingoffcanvasmenu_default_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block layout_navigation_offcanvas_navigation_actions_improvingoffcanvasmenu_default_after %}{% endblock %}
+    {% endif %}
+
+    {% block layout_navigation_offcanvas_navigation_actions_improvingoffcanvasmenu_after %}{% endblock %}
+{% endblock %}
+
+{% block layout_navigation_offcanvas_navigation_placeholder %}
+    {% block layout_navigation_offcanvas_navigation_placeholder_improvingoffcanvasmenu_before %}{% endblock %}
+
+    {{ parent() }}
+
+    {% if config('SschreierImprovingOffCanvasMenu.config.showMenuItemsOfFooterServiceNavigation') %}
+        {% block layout_navigation_offcanvas_navigation_placeholder_improvingoffcanvasmenu_custom %}
+            {% if not feature('cache_rework') and not footer is defined and page is defined %}
+                {% set footer = page.footer %}
+            {% endif %}
+
+            {% apply spaceless %}
+                <div class="navigation-offcanvas-service-menu-list">
+                    <ul class="footer-service-menu-list list-unstyled">
+                        {% for serviceMenuItem in footer.serviceMenu %}
+                            {% block layout_navigation_offcanvas_navigation_placeholder_improvingoffcanvasmenu_custom_service_menu_item %}
+                                {% if not(serviceMenuItem.translated.customFields['sschreier_categoryoffcanvassettings_hideinoffcanvasmenu']) %}
+                                    {% block layout_navigation_offcanvas_navigation_placeholder_improvingoffcanvasmenu_custom_service_menu_item_inner %}
+                                        <li class="footer-service-menu-item">
+                                            <a class="footer-service-menu-link"
+                                               href="{{ category_url(serviceMenuItem) }}"
+                                               {% if category_linknewtab(serviceMenuItem) %}target="_blank"{% endif %}
+                                               title="{{ serviceMenuItem.translated.name }}">
+                                                {{ serviceMenuItem.translated.name }}
+                                            </a>
+                                        </li>
+                                    {% endblock %}
+                                {% endif %}
+                            {% endblock %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endapply %}
+        {% endblock %}
+    {% endif %}
+
+    {% block layout_navigation_offcanvas_navigation_placeholder_improvingoffcanvasmenu_after %}{% endblock %}
+{% endblock %}
