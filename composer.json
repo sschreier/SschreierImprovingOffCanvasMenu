@@ -1,43 +1,43 @@
 {
-  "name": "sschreier/sschreierimprovingoffcanvasmenu",
-  "description": "improvement of the off-canvas menu",
-  "version": "1.0.0",
-  "type": "shopware-platform-plugin",
-  "license": "GPL-3.0-or-later",
-  "authors": [
-    {
-      "name": "Sebastian Schreier",
-      "role": "Manufacturer"
-    }
-  ],
-  "require": {
-    "shopware/core": "~6.6.10.4",
-    "shopware/storefront": "~6.6.10.4"
-  },
-  "extra": {
-    "shopware-plugin-class": "Sschreier\\ImprovingOffCanvasMenu\\SschreierImprovingOffCanvasMenu",
-    "plugin-icon": "src/Resources/config/plugin.png",
-    "copyright": "Sebastian Schreier",
-    "label": {
-      "de-DE": "Verbesserung des Off-Canvas-Menüs",
-      "en-GB": "improvement of the off-canvas menu"
+    "name": "sschreier/sschreierimprovingoffcanvasmenu",
+    "description": "improvement of the off-canvas menu",
+    "version": "1.1.0",
+    "type": "shopware-platform-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Sebastian Schreier",
+            "role": "Manufacturer"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.7.0",
+        "shopware/storefront": "~6.7.0"
     },
-    "description": {
-      "de-DE": "Die Erweiterung verbessert das Off-Canvas-Menü. Beispielsweise kann rechts neben dem Icon im Header ein Menü-Text angezeigt werden. Darüber hinaus kann man sich einen Home-Link als ersten Link anzeigen lassen. Bei den Menü-Links kann bei Bedarf die Schriftgröße festgelegt und der Rahmen unterhalb der jeweiligen Menü-Links entfernen werden. Bei den Unterebenen hat man die Möglichkeit, sich den Zurück-Link ausblenden zu lassen. Außerdem kann bei Bedarf das Menü in der Smartphone-Ansicht in voller Breite angezeigt und die Schriftgröße der Schließen-Schaltfläche angepasst werden. Ebenso besteht die Möglichkeit, sich den Bereich der Sprachen und Währungen ausblenden und sich die Menü-Links der Footer-Service-Navigation anzeigen zu lassen. Außerdem kann bei jeder Kategorie ausgewählt werden, ob diese im Off-Canvas-Menü ausgeblendet werden soll.",
-      "en-GB": "The extension improves the off-canvas menu. For example, a menu text can be shown to the right of the icon in the header. In addition, you can display a home link as first link. For the menu items, the font size can be set if required and the border below the respective menu items can be removed. In the sublevels you have the option to hide the back link. If necessary, the menu can be displayed in the smartphone view in full width and the font size of the close button can be adjusted. It is also possible to hide the languages and currencies area and show the menu items of the footer service navigation. You can also choose whether each category should be hidden in the off-canvas menu."
+    "extra": {
+        "shopware-plugin-class": "Sschreier\\ImprovingOffCanvasMenu\\SschreierImprovingOffCanvasMenu",
+        "plugin-icon": "src/Resources/config/plugin.png",
+        "copyright": "Sebastian Schreier",
+        "label": {
+            "de-DE": "Verbesserung des Off-Canvas-Menüs",
+            "en-GB": "improvement of the off-canvas menu"
+        },
+        "description": {
+            "de-DE": "Die Erweiterung verbessert das Off-Canvas-Menü. Beispielsweise kann rechts neben dem Icon im Header ein Menü-Text angezeigt werden. Darüber hinaus kann man sich einen Home-Link als ersten Link anzeigen lassen. Bei den Menü-Links kann bei Bedarf die Schriftgröße festgelegt und der Rahmen unterhalb der jeweiligen Menü-Links entfernen werden. Bei den Unterebenen hat man die Möglichkeit, sich den Zurück-Link ausblenden zu lassen. Außerdem kann bei Bedarf das Menü in der Smartphone-Ansicht in voller Breite angezeigt und die Schriftgröße der Schließen-Schaltfläche angepasst werden. Ebenso besteht die Möglichkeit, sich den Bereich der Sprachen und Währungen ausblenden und sich die Menü-Links der Footer-Service-Navigation anzeigen zu lassen. Außerdem kann bei jeder Kategorie ausgewählt werden, ob diese im Off-Canvas-Menü ausgeblendet werden soll.",
+            "en-GB": "The extension improves the off-canvas menu. For example, a menu text can be shown to the right of the icon in the header. In addition, you can display a home link as first link. For the menu items, the font size can be set if required and the border below the respective menu items can be removed. In the sublevels you have the option to hide the back link. If necessary, the menu can be displayed in the smartphone view in full width and the font size of the close button can be adjusted. It is also possible to hide the languages and currencies area and show the menu items of the footer service navigation. You can also choose whether each category should be hidden in the off-canvas menu."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://www.sebastianschreier.de",
+            "en-GB": "https://www.sebastianschreier.de"
+        },
+        "supportLink": {
+            "de-DE": "https://www.sebastianschreier.de",
+            "en-GB": "https://www.sebastianschreier.de"
+        }
     },
-    "manufacturerLink": {
-      "de-DE": "https://www.sebastianschreier.de",
-      "en-GB": "https://www.sebastianschreier.de"
-    },
-    "supportLink": {
-      "de-DE": "https://www.sebastianschreier.de",
-      "en-GB": "https://www.sebastianschreier.de"
+    "autoload": {
+        "psr-4": {
+           "Sschreier\\ImprovingOffCanvasMenu\\": "src/"
+        }
     }
-  },
-  "autoload": {
-    "psr-4": {
-      "Sschreier\\ImprovingOffCanvasMenu\\": "src/"
-    }
-  }
 }

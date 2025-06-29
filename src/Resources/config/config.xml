@@ -118,13 +118,6 @@
             <defaultValue>true</defaultValue>
         </input-field>
 
-        <input-field type="bool">
-            <name>showMenuItemsOfFooterServiceNavigation</name>
-            <label>show the menu items of the footer service navigation</label>
-            <label lang="de-DE">Menü-Links der Footer-Service-Navigation anzeigen</label>
-            <defaultValue>false</defaultValue>
-        </input-field>
-
         <component name="sw-snippet-field">
             <name>categoriesTextSnippet</name>
             <label>text above the category list</label>

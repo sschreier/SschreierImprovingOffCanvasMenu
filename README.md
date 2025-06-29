@@ -37,7 +37,6 @@ You can also _choose whether each category should be hidden in the off-canvas me
 - select if the menu in the smartphone view should be shown in full width
 - select the font size of the close button (*1)
 - select if the languages and currencies area should be shown
-- select if the menu items of the footer service navigation should be shown
 - set the text above the category list via snippet
 
 ## Available snippets
