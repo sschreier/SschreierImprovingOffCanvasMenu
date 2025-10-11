@@ -106,41 +106,41 @@ bin/console plugin:install --activate SschreierImprovingOffCanvasMenu
 
 ### the off-canvas menu displayed in the smartphone view in full width and with bigger font size
 
-![the off-canvas menu displayed in the smartphone view in full width and with bigger font size](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image1.jpg)
+![the off-canvas menu displayed in the smartphone view in full width and with bigger font size](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image1.jpg)
 
 ### a sublevel of the off-canvas menu without back link
 
-![a sublevel of the off-canvas menu without back link](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image2.jpg)
+![a sublevel of the off-canvas menu without back link](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image2.jpg)
 
 ### the off-canvas menu with the menu items of the footer service navigation
 
-![the off-canvas menu with the menu items of the footer service navigation](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image3.jpg)
+![the off-canvas menu with the menu items of the footer service navigation](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image3.jpg)
 
 ### the off-canvas menu with the languages and currencies area
 
-![the off-canvas menu with the languages and currencies area](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image4.jpg)
+![the off-canvas menu with the languages and currencies area](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image4.jpg)
 
 ### the off-canvas menu without borders below the respective menu items
 
-![the off-canvas menu without borders below the respective menu items](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image5.jpg)
+![the off-canvas menu without borders below the respective menu items](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image5.jpg)
 
 ### extension configuration part 1
 
-![extension configuration part 1](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image6.jpg)
+![extension configuration part 1](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image6.jpg)
 
 ### extension configuration part 2
 
-![extension configuration part 2](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image7.jpg)
+![extension configuration part 2](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image7.jpg)
 
 ### extension configuration part 3
 
-![extension configuration part 3](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image8.jpg)
+![extension configuration part 3](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image8.jpg)
 
 ### extension configuration part 4
 
-![extension configuration part 4](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image9.jpg)
+![extension configuration part 4](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image9.jpg)
 
 
 ### category custom field in shopware administration
 
-![category custom field in shopware administration](https://www.sebastianschreier.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image10.jpg)
+![category custom field in shopware administration](https://www.web-solutions-dresden.de/plugins/SschreierImprovingOffCanvasMenu/SschreierImprovingOffCanvasMenu-Image10.jpg)
