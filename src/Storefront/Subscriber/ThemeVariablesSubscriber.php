@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Sschreier\ImprovingOffCanvasMenu\Storefront\Subscriber;
 
+use InvalidArgumentException;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Storefront\Theme\Event\ThemeCompilerEnrichScssVariablesEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -17,11 +18,8 @@ use Sschreier\ImprovingOffCanvasMenu\SschreierImprovingOffCanvasMenu;
 
 class ThemeVariablesSubscriber implements EventSubscriberInterface
 {
-    private SystemConfigService $systemConfig;
-
-    public function __construct(SystemConfigService $systemConfig)
+    public function __construct(private readonly SystemConfigService $systemConfig)
     {
-        $this->systemConfig = $systemConfig;
     }
 
     public static function getSubscribedEvents(): array
@@ -35,11 +33,22 @@ class ThemeVariablesSubscriber implements EventSubscriberInterface
     {
         $configFields = $this->systemConfig->get('SschreierImprovingOffCanvasMenu.config', $event->getSalesChannelId());
 
-        foreach($configFields as $configKey => $value) {
-            // convert `customVariableName` to `custom-variable-name`
-            $kebabCasedScssVariable = str_replace('_', '-', (new CamelCaseToSnakeCaseNameConverter())->normalize($configKey));
+        if (!is_array($configFields)) {
+            return;
+        }
 
-            if($value && in_array($configKey, SschreierImprovingOffCanvasMenu::PLUGIN_CONFIG_VARS)) {
+        $nameConverter = new CamelCaseToSnakeCaseNameConverter();
+
+        foreach ($configFields as $configKey => $value) {
+            // convert `customVariableName` to `custom-variable-name`
+            $kebabCasedScssVariable = str_replace('_', '-', $nameConverter->normalize($configKey));
+
+            if(
+                in_array($configKey, SschreierImprovingOffCanvasMenu::PLUGIN_CONFIG_VARS, true)
+                && $value !== null
+                && $value !== ''
+                && $value !== false
+            ) {
                 $event->addVariable(
                     'sschreier-' . $kebabCasedScssVariable,
                     (string) $value

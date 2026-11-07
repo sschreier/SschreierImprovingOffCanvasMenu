@@ -11,21 +11,19 @@ namespace Sschreier\ImprovingOffCanvasMenu\Migration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
+use LogicException;
 use Shopware\Core\Defaults;
-use Shopware\Core\Framework\Migration\InheritanceUpdaterTrait;
 use Shopware\Core\Framework\Migration\MigrationStep;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\CustomField\CustomFieldTypes;
 
 final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends MigrationStep
 {
-    use InheritanceUpdaterTrait;
-
     public const CUSTOM_FIELD_SET_TECHNICAL_NAME = 'sschreier_categoryoffcanvassettings';
 
     public function getCreationTimestamp(): int
     {
-        return 1708099200;
+        return 1746964800;
     }
 
     /**
@@ -41,12 +39,21 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
         $this->createCustomFieldRelation($connection, $customFieldSetId);
     }
 
-    public function updateDestructive(Connection $connection): void
-    {
-    }
-
     protected function createCustomFieldSet(Connection $connection): string
     {
+        $existingCustomFieldSetId = $connection->fetchOne(
+            'SELECT `id` FROM `custom_field_set` WHERE `name` = :name',
+            ['name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME]
+        );
+
+        if ($existingCustomFieldSetId !== false) {
+            if (!is_string($existingCustomFieldSetId)) {
+                throw new LogicException('The existing custom field set has an invalid ID.');
+            }
+
+            return $existingCustomFieldSetId;
+        }
+
         $customFieldSetId = Uuid::randomBytes();
 
         $connection->executeStatement(
@@ -65,13 +72,32 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
 
     protected function createCustomField(Connection $connection, string $customFieldSetId): void
     {
+        $customFieldName = self::CUSTOM_FIELD_SET_TECHNICAL_NAME . '_hideinoffcanvasmenu';
+        $existingCustomFieldSetId = $connection->fetchOne(
+            'SELECT `set_id` FROM `custom_field` WHERE `name` = :name',
+            ['name' => $customFieldName]
+        );
+
+        if ($existingCustomFieldSetId !== false) {
+            if ($existingCustomFieldSetId !== $customFieldSetId) {
+                throw new LogicException(sprintf('The custom field "%s" is already assigned to another set.', $customFieldName));
+            }
+
+            $connection->executeStatement(
+                'UPDATE `custom_field` SET `allow_customer_write` = 0 WHERE `name` = :name',
+                ['name' => $customFieldName]
+            );
+
+            return;
+        }
+
         $customFieldId = Uuid::randomBytes();
 
         $connection->executeStatement(
             self::getCustomFieldSql(),
             [
                 'id' => $customFieldId,
-                'name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME . '_hideinoffcanvasmenu',
+                'name' => $customFieldName,
                 'fieldType' => CustomFieldTypes::BOOL,
                 'config' => '{"label": {"de-DE": "Im Off-Canvas-Menü ausblenden", "en-GB": "hide in off-canvas menu"}, "componentName": "sw-field", "customFieldType": "checkbox", "customFieldPosition": 1, "type": "checkbox"}',
                 'set_id' => $customFieldSetId,
@@ -80,8 +106,20 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
         );
     }
 
-    protected function createCustomFieldRelation(Connection $connection, $customFieldSetId): void
+    protected function createCustomFieldRelation(Connection $connection, string $customFieldSetId): void
     {
+        $existingRelationId = $connection->fetchOne(
+            'SELECT `id` FROM `custom_field_set_relation` WHERE `set_id` = :set_id AND `entity_name` = :entity_name',
+            [
+                'set_id' => $customFieldSetId,
+                'entity_name' => 'category',
+            ]
+        );
+
+        if ($existingRelationId !== false) {
+            return;
+        }
+
         $customFieldRelationId = Uuid::randomBytes();
 
         $connection->executeStatement(
@@ -90,7 +128,7 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
                 'id' => $customFieldRelationId,
                 'set_id' => $customFieldSetId,
                 'created_at' => self::getDateTimeValue(),
-                'entity_name' => 'category'
+                'entity_name' => 'category',
             ],
         );
     }
@@ -107,7 +145,7 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
     {
         return <<<SQL
                 INSERT INTO `custom_field` (`id`, `name`, `type`, `config`, `active`, `set_id`, `created_at`, `updated_at`, `allow_customer_write`) VALUES
-                (:id, :name, :fieldType, :config, 1, :set_id, :created_at, NULL, 1);
+                (:id, :name, :fieldType, :config, 1, :set_id, :created_at, NULL, 0);
             SQL;
     }
 
@@ -121,6 +159,6 @@ final class Migration1746964800CustomFieldCategoryOffCanvasSettings extends Migr
 
     protected static function getDateTimeValue(): string
     {
-        return (new \DateTime())->format(Defaults::STORAGE_DATE_TIME_FORMAT);
+        return (new \DateTimeImmutable())->format(Defaults::STORAGE_DATE_TIME_FORMAT);
     }
 }

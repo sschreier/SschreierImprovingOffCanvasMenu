@@ -3,14 +3,15 @@
 {% block layout_navigation_offcanvas_navigation_category_item_link %}
     {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_before %}{% endblock %}
 
-    {% set activeId = shopware.navigation.id ?? context.salesChannel.navigationCategoryId %}
-    {% set isRoot = activeId == context.salesChannel.navigationCategoryId %}
+    {% set isRoot = (shopware.navigation.id ?? context.salesChannel.navigationCategoryId) == context.salesChannel.navigationCategoryId %}
 
     {% if config('SschreierImprovingOffCanvasMenu.config.showHomeLinkAsFirstLink') and loop.first and isRoot %}
+        {% set homeLinkText = 'sschreier.improvingoffcanvasmenu.general.homeLinkText'|trans|striptags %}
+
         {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_custom %}
             <li class="navigation-offcanvas-list-item">
-                <a class="navigation-offcanvas-link nav-item nav-link" href="{{ 'sschreier.improvingoffcanvasmenu.general.homeLink'|trans|striptags }}" itemprop="url" title="{{ 'sschreier.improvingoffcanvasmenu.general.homeLinkText'|trans|striptags }}">
-                    <span itemprop="name">{{ 'sschreier.improvingoffcanvasmenu.general.homeLinkText'|trans|striptags }}</span>
+                <a class="navigation-offcanvas-link nav-item nav-link is-home-link" href="{{ 'sschreier.improvingoffcanvasmenu.general.homeLink'|trans|striptags }}" itemprop="url" title="{{ homeLinkText }}">
+                    <span itemprop="name">{{ homeLinkText }}</span>
                 </a>
             </li>
         {% endblock %}
@@ -18,7 +19,7 @@
 
     {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_custom_after %}{% endblock %}
 
-    {% if not(item.category.translated.customFields['sschreier_categoryoffcanvassettings_hideinoffcanvasmenu']) %}
+    {% if not (item.category.translated.customFields['sschreier_categoryoffcanvassettings_hideinoffcanvasmenu']|default(false)) %}
         {% block layout_navigation_offcanvas_navigation_category_item_link_improvingoffcanvasmenu_customfield_before %}{% endblock %}
 
         {{ parent() }}
